@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.airin.spammersms.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="450dp"
+        android:id="@+id/linearlayoutQueue"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/tvFailedSending"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:text="Failed Send:" />
+
+        <TextView
+            android:id="@+id/tvSuccessSending"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:text="Success Send:" />
+
+        <TextView
+            android:id="@+id/tvSuccessDeliver"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:text="Success Deliver:" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:id="@+id/svScrollLog"
+            android:stackFromBottom="true"
+            android:transcriptMode="alwaysScroll"
+            android:background="@drawable/border">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/tvLogFile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:text="Log File:" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnStart"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="Start"
+                android:onClick="startButton" />
+
+
+            <ToggleButton
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:id="@+id/toggle"
+                android:text="Switch"
+                android:onClick="toggleFunction"/>
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="450dp"
+        android:id="@+id/linearlayoutSetting"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:weightSum="4"
+            >
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:textSize="16dp"
+                android:inputType="textPersonName"
+                android:text="URL:"
+                android:layout_weight="3"/>
+
+            <EditText
+                android:id="@+id/etUrl"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:inputType="textMultiLine"
+                android:hint="URL"
+                android:layout_weight="1"/>
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                android:weightSum="4"
+                >
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="50dp"
+                    android:ems="10"
+                    android:textSize="16dp"
+                    android:inputType="textPersonName"
+                    android:text="Phone No:"
+                    android:layout_weight="3"/>
+
+                <EditText
+                    android:id="@+id/etNumberPhone"
+                    android:layout_width="300dp"
+                    android:layout_height="50dp"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:hint="Sim Card Number" />
+
+        </LinearLayout>
+
+        <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal"
+                    android:weightSum="4"
+                    >
+
+                    <TextView
+                        android:layout_width="60dp"
+                        android:layout_height="50dp"
+                        android:ems="10"
+                        android:textSize="16dp"
+                        android:inputType="textPersonName"
+                        android:text="Threshold:"
+                        android:layout_weight="3"/>
+
+                    <EditText
+                        android:id="@+id/etThreshold"
+                        android:layout_width="300dp"
+                        android:layout_height="50dp"
+                        android:ems="10"
+                        android:inputType="textPersonName"
+                        android:hint="Threshold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:weightSum="4"
+            >
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:textSize="16dp"
+                android:inputType="textPersonName"
+                android:text="Telco:"
+                android:layout_weight="3"/>
+
+            <EditText
+                android:id="@+id/etTelco"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:hint="Telco" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:weightSum="4"
+            >
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:textSize="16dp"
+                android:inputType="textPersonName"
+                android:text="Shortcode:"
+                android:layout_weight="3"/>
+
+            <EditText
+                android:id="@+id/etShortcode"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:hint="Shortcode" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:weightSum="4"
+            >
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:textSize="16dp"
+                android:inputType="textPersonName"
+                android:text="Service:"
+                android:layout_weight="3"/>
+
+            <EditText
+                android:id="@+id/etService"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:hint="Service" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:weightSum="4"
+            >
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:textSize="16dp"
+                android:inputType="textPersonName"
+                android:text="Action:"
+                android:layout_weight="3"/>
+
+
+            <EditText
+                android:id="@+id/etAction"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:hint="Action" />
+        </LinearLayout>
+        <Button
+            android:id="@+id/btnKill"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:text="Kill App"
+            android:onClick="killApp" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="0dp"
+        android:layout_weight="3"
+        android:gravity="bottom"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:onClick="changeView"
+            android:text="Queue" />
+
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:onClick="changeView"
+            android:text="Setting" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:onClick="changeView"
+            android:text="Save" />
+    </LinearLayout>
+</LinearLayout>

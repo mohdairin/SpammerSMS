@@ -1,0 +1,4 @@
+#Wed May 23 12:30:41 MYT 2018
+base.0=/Users/airin/AndroidStudioProjects/SpammerSMS/app/build/intermediates/transforms/dexMerger/debug/1
+path.0=classes.dex
+renamed.0=classes.dex

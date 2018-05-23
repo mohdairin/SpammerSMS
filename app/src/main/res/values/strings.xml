@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Spammer SMS</string>
+    <string name="whatsapp_suffix">test</string>
+</resources>
