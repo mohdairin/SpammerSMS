@@ -1388,7 +1388,7 @@ public class MainActivity extends AppCompatActivity {
                     };
                     thread3.start();
 
-                    Log.e("Error", "No Service");
+                    Log.e("Error waklu", "No Service");
                     Log.i("Error", "No Service Sim 1" + " AMTID:" + arg1);
 
                     break;
