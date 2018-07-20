@@ -8,9 +8,9 @@
     tools:context="com.example.airin.spammersms.MainActivity">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="450dp"
         android:id="@+id/linearlayoutQueue"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
         android:orientation="vertical"
         android:visibility="visible">
 
@@ -19,47 +19,58 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30sp"
-            android:text="TextView" />
+            android:text="Queue"
+            android:textSize="30sp" />
+
+
+        <TextView
+            android:id="@+id/tvSimUse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sim Use"
+            android:textSize="30sp" />
 
         <TextView
             android:id="@+id/tvFailedSending"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30sp"
-            android:text="Failed Send:" />
+            android:text="Failed Send:"
+            android:textSize="30sp" />
 
         <TextView
             android:id="@+id/tvSuccessSending"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30sp"
-            android:text="Success Send:" />
+            android:text="Success Send:"
+            android:textSize="30sp" />
 
         <TextView
             android:id="@+id/tvSuccessDeliver"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="25sp"
-            android:text="Success Deliver:" />
+            android:text="Success Deliver:"
+            android:textColor="@color/colorAccent"
+            android:textSize="25sp" />
 
         <ScrollView
+            android:id="@+id/svScrollLog"
             android:layout_width="match_parent"
             android:layout_height="250dp"
-            android:id="@+id/svScrollLog"
+            android:background="@drawable/border"
             android:stackFromBottom="true"
-            android:transcriptMode="alwaysScroll"
-            android:background="@drawable/border">
+            android:transcriptMode="alwaysScroll">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
                 android:orientation="vertical">
+
                 <TextView
                     android:id="@+id/tvLogFile"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="15sp"
-                    android:text="Log File:" />
+                    android:text="Log File:"
+                    android:textSize="15sp" />
 
             </LinearLayout>
 
@@ -74,16 +85,16 @@
                 android:id="@+id/btnStart"
                 android:layout_width="100dp"
                 android:layout_height="50dp"
-                android:text="Start"
-                android:onClick="startButton" />
+                android:onClick="startButton"
+                android:text="Start" />
 
 
             <ToggleButton
+                android:id="@+id/toggle"
                 android:layout_width="100dp"
                 android:layout_height="50dp"
-                android:id="@+id/toggle"
-                android:text="Switch"
-                android:onClick="toggleFunction"/>
+                android:onClick="toggleFunction"
+                android:text="Switch" />
 
 
         </LinearLayout>
@@ -96,6 +107,32 @@
         android:id="@+id/linearlayoutSetting"
         android:orientation="vertical"
         android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:weightSum="4"
+            >
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:textSize="16dp"
+                android:inputType="textPersonName"
+                android:text="Client Id:"
+                android:layout_weight="3"/>
+
+            <EditText
+                android:id="@+id/etClientId"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:inputType="textLongMessage"
+                android:hint="Client Id"
+                android:layout_weight="1"/>
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -144,7 +181,7 @@
                     android:layout_width="300dp"
                     android:layout_height="50dp"
                     android:ems="10"
-                    android:inputType="textPersonName"
+                    android:inputType="phone"
                     android:hint="Sim Card Number" />
 
         </LinearLayout>
@@ -170,7 +207,7 @@
                         android:layout_width="300dp"
                         android:layout_height="50dp"
                         android:ems="10"
-                        android:inputType="textPersonName"
+                        android:inputType="phone"
                         android:hint="Threshold" />
         </LinearLayout>
 
@@ -274,6 +311,61 @@
                 android:inputType="textPersonName"
                 android:hint="Action" />
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:weightSum="8"
+            >
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:textSize="16dp"
+                android:inputType="textPersonName"
+                android:text="SMS Limit:"
+                android:layout_weight="1"/>
+
+            <EditText
+                android:id="@+id/etSMSLimit"
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:inputType="phone"
+                android:layout_weight="3"
+                android:hint="SMSLimit1" />
+
+            <EditText
+                android:id="@+id/etSMSLimit2"
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:inputType="phone"
+                android:layout_weight="3"
+                android:hint="SMSLimit 2" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:weightSum="5"
+            >
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:textSize="16dp"
+                android:inputType="textPersonName"
+                android:text="SMS Limit 2:"
+                android:layout_weight="4"/>
+
+
+        </LinearLayout>
+
         <Button
             android:id="@+id/btnKill"
             android:layout_width="100dp"
@@ -315,7 +407,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_weight="1"
-            android:onClick="changeView"
+            android:onClick="saveSetting"
             android:text="Save" />
     </LinearLayout>
 </LinearLayout>

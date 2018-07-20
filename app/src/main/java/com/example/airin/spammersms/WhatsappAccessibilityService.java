@@ -51,7 +51,15 @@ public class WhatsappAccessibilityService extends AccessibilityService {
             Thread.sleep (500); // hack for certain devices in which the immediate back click is too fast to handle
             performGlobalAction (GLOBAL_ACTION_BACK);
             Thread.sleep (500);  // same hack as above
+            performGlobalAction (GLOBAL_ACTION_BACK);
+         //   performGlobalAction (GLOBAL_ACTION_BACK);
         } catch (InterruptedException ignored) {}
+        performGlobalAction (GLOBAL_ACTION_BACK);
+        try {
+            Thread.sleep (500); // hack for certain devices in which the immediate back click is too fast to handle
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         performGlobalAction (GLOBAL_ACTION_BACK);
     }
 

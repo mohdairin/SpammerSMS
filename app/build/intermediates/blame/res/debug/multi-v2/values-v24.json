@@ -4,7 +4,7 @@
             "outputFile": "/Users/airin/AndroidStudioProjects/SpammerSMS/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v24/values-v24.xml",
             "map": [
                 {
-                    "source": "/Users/airin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/9788f4d869e12ff505786ceb0f7638f6/res/values-v24/values-v24.xml",
+                    "source": "/Users/airin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/6cc24cdef9429da5a124297fb3be7e7d/res/values-v24/values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7",
                         "startColumns": "4,4,4,4,4,4",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "/Users/airin/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/995cf9d0162a57537f199fe85ddc1778/res/values-v24/values-v24.xml",
+                    "source": "/Users/airin/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/755ebda23cb5b1c6f9e691a7fe7fb07f/res/values-v24/values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",

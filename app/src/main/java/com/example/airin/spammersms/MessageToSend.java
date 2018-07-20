@@ -10,7 +10,7 @@ public class MessageToSend {
     String Status;
     String BatchID;
     ArrayList<ItemDTO> MT;
-
+//asdawdawda
 
     public String getStatus() {
         return Status;

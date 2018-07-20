@@ -177,7 +177,7 @@ public class serverReport {
 
 
 
-                String url1 = "http://gensuitedev3.genusis.com/api/gsm/";
+                String url1 = "https://gensuite11.genusis.com/api/gateway/";
                 JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url1, object,
                         new Response.Listener<JSONObject>() {
                             @Override
