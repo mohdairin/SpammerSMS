@@ -69,12 +69,13 @@ import cz.msebera.android.httpclient.entity.StringEntity;
 import okhttp3.MediaType;
 
 public class MainActivity extends AppCompatActivity {
+//    public static int DNREPORT=0;
 
     public static final MediaType MEDIA_TYPE =
             MediaType.parse("application/json");
     public static SMSValidationDatabase smsValidationDatabase;
     static TextView tvQueue, tvSendingSuccess, tvSendingFailed, tvSuccessDelivered, tvLogFile
-            ,tvSimUse;
+            ,tvSimUse,tvSim1Queue,tvsim2Queue,tvSim1Mt,tvSim2Mt,tvDN;
     private static RequestQueue requestQueue;
     Comms Communication;
     BroadcastReceiver sendBroadcastReceiver = new SentReceiver();
@@ -165,6 +166,12 @@ public class MainActivity extends AppCompatActivity {
         tvSuccessDelivered = findViewById(R.id.tvSuccessDeliver);
         tvLogFile = findViewById(R.id.tvLogFile);
         tvSimUse= findViewById(R.id.tvSimUse);
+        tvSim1Queue=findViewById(R.id.tvSim1Queue);
+        tvsim2Queue=findViewById(R.id.tvSim2Queue);
+        tvSim1Mt=findViewById(R.id.tvSim1Mt);
+        tvSim2Mt=findViewById(R.id.tvSim2Mt);
+        tvDN=findViewById(R.id.tvDN);
+
 
 
         etUrl = findViewById(R.id.etUrl);
@@ -661,7 +668,7 @@ public class MainActivity extends AppCompatActivity {
                             for (saveSqlite = 0; saveSqlite < messageToSend.getMT().size(); saveSqlite++) {
                                 dbFunction.setSqliteQueue(messageToSend.getMT().get(saveSqlite).getAMTID().toString(), messageToSend.getMT().get(saveSqlite).getMSISDN().toString(), messageToSend.getMT().get(saveSqlite).getMsg().toString(), "gsm_celcom", "0192886050", logid);
                             }
-                            serverReport.serverAcknowledgment(messageToSend.getBatchID(), "gsm", Simcard);
+                            serverReport.serverAcknowledgment(messageToSend.getBatchID(), "gsm", Simcard,ClientID);
                             int smsLimitAmount = Integer.parseInt(smsLimit);
 
                             Log.i("SMSLimit", "onResponse: "+smsLimit);
@@ -1286,6 +1293,8 @@ public class MainActivity extends AppCompatActivity {
             tvSendingFailed.setText("Failed Send:" + failedSending);
             tvQueue.setText("SMS Queue:" + queue);
             tvSuccessDelivered.setText("Delivered:" + successDeliver);
+            tvDN.setText("DN:"+serverReport.DNReport);
+
             String simUse;
             if(sim==0)
             {
@@ -1294,6 +1303,15 @@ public class MainActivity extends AppCompatActivity {
                 simUse="2";
             }
             tvSimUse.setText("Sim in use:"+simUse);
+            if(sim==0)
+            {
+                tvSim1Mt.setText("MT:"+nowSendingRate);
+                tvSim1Queue.setText("Queue:" + queue);
+
+            }else{
+                tvSim2Mt.setText("MT:"+nowSendingRate);
+                tvsim2Queue.setText("Queue:"+queue);
+            }
 
         }
     }
@@ -1422,7 +1440,6 @@ public class MainActivity extends AppCompatActivity {
 
             tvSendingSuccess.setText("Success Send:" + succesSending);
             tvSendingFailed.setText("Failed Send:" + failedSending);
-            tvQueue.setText("SMS Queue:" + queue);
             if(sim==0)
             {
                 simUse="1";
@@ -1430,6 +1447,13 @@ public class MainActivity extends AppCompatActivity {
                 simUse="2";
             }
             tvSimUse.setText("Sim Use"+simUse);
+            if(sim==0)
+            {
+                tvSim1Queue.setText("Queue:" + queue);
+
+            }else{
+                tvsim2Queue.setText("Queue:"+queue);
+            }
         }
     }
 
@@ -1620,6 +1644,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     */
+
+
+    @Override
+    protected void onStop()
+    {
+        unregisterReceiver(sendBroadcastReceiver);
+        unregisterReceiver(deliveryBroadcastReciever);
+        unregisterReceiver(sendBroadcastReceiverMulti);
+        unregisterReceiver(deliveryBroadcastRecieverMulti);
+        super.onStop();
+    }
 
 
 
